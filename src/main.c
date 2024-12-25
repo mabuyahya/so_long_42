@@ -6,7 +6,7 @@
 /*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:18:14 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/24 15:34:16 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:34:41 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,11 @@
 int	main(int argc, char *argv[])
 {
 	int	fd;
-	//char	**man;
-	//char	**str;
-	check_argv(argc, argv);
+	char	**map;
+	check_argvv(argc, argv);
 	fd = open(argv[1], O_RDONLY);
-	geting_map(fd);
-
-
-
+	map = geting_map(fd);	
+	check_map(map);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 12:42:07 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/24 18:42:21 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:40:27 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,19 @@ char	*reading_file(int fd)
 	}
 	return (str);
 }
-void	geting_map(int	fd)
+char	**geting_map(int fd)
 {
 	char *str;
-
+	char **map;
 	if (fd == -1)
 	{
 		ft_putendl_fd("error in the file permission or not exist", 2);	
 		exit(1);
 	}
 	str = reading_file(fd);
-	printf("%s", str);
+	empty_line(str);
+	check_valid_chars(str);
+	map =ft_split(str, '\n');
 	free(str);
+	return (map);
 }

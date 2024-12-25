@@ -10,7 +10,7 @@ FT_PRINTF_DIR = lib/ftprintf
 INC_DIR = include
 
 #file
-SRC_FILES = main.c error_handling.c reading_map.c
+SRC_FILES = main.c error_handling.c reading_map.c handling_map.c
 SRC_FILES_WHIT_PREFIX = $(addprefix src/, $(SRC_FILES))
 OBJ_FILES = $(SRC_FILES_WHIT_PREFIX:src/%.c=obj/%.o)
 

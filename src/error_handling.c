@@ -6,7 +6,7 @@
 /*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:41:22 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/24 15:25:22 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:41:50 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,34 @@
 
 void	print_free_exit(char *str,char *to_free, int free_flag)
 {
-	if (!str)
+	if (str)
 		ft_putendl_fd(str, 2);
 	if (free_flag)
 		free(to_free);
 	exit(1);
 }
 
-void	check_argv(int argc, char **argv)
+
+void	print_freemap_exit(char *str,char **map, int free_flag)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+		ft_putendl_fd(str, 2);
+	if (free_flag)
+	{
+		while(map[i])
+		{
+			free(map[i]);	
+			i++;	
+		}
+		free(map);
+	}
+	exit(1);
+}
+
+void	check_argvv(int argc, char **argv)
 {
 	int	i;
 
