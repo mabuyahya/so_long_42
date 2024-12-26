@@ -6,7 +6,7 @@
 /*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:25:53 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/25 18:44:21 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:06:39 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	check_map(char **map)
 {
 	check_shap(map);
+	check_closeness(map);
+	flood_fill(map);
 }
 void	empty_line(char *str)
 {
@@ -60,6 +62,7 @@ void	check_shap(char **map)
 	temp = j;
 	while (map[i])
 	{
+		j = 0;
 		while (map[i][j])
 		{
 			j++;
@@ -69,5 +72,25 @@ void	check_shap(char **map)
 			print_freemap_exit("not a good shap", map, 1);
 		}
 		i++;
+	}
+}
+
+void	check_closeness(char **map)
+{
+	int	i;
+	int	last_row;
+
+	i = 0;
+	while (map[i])
+		i++;
+	last_row = i - 1;
+	i = -1;
+	if(!check_ones(map[0]) && !check_ones(map[last_row]))
+		print_freemap_exit("the map is not close1", map, 1);
+	while (map[++i])
+	{
+		if (map[i][0] != '1' || map[i][last_char_i(map[i])] != '1')
+			print_freemap_exit("the map is not close", map, 1);
+
 	}
 }

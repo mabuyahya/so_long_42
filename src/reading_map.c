@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reading_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 12:42:07 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/25 18:40:27 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:02:39 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*reading_file(int fd)
 	}
 	if (str[0] == '\0' || !str)
 	{
-		print_free_exit("empty map", str,1);
+		print_free_exit("empty map", str, 1);
 	}
 	return (str);
 }
@@ -51,6 +51,7 @@ char	**geting_map(int fd)
 	str = reading_file(fd);
 	empty_line(str);
 	check_valid_chars(str);
+	check_chars_num(str);
 	map =ft_split(str, '\n');
 	free(str);
 	return (map);

@@ -10,7 +10,7 @@ FT_PRINTF_DIR = lib/ftprintf
 INC_DIR = include
 
 #file
-SRC_FILES = main.c error_handling.c reading_map.c handling_map.c
+SRC_FILES = main.c error_handling.c  reading_map.c handling_map2.c handling_map3.c handling_map.c
 SRC_FILES_WHIT_PREFIX = $(addprefix src/, $(SRC_FILES))
 OBJ_FILES = $(SRC_FILES_WHIT_PREFIX:src/%.c=obj/%.o)
 
@@ -32,9 +32,9 @@ obj/%.o: src/%.c $(INC_DIR)/so_long.h
 		@mkdir -p $(@D)
 		$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 LIBFT :
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -s -C $(LIBFT_DIR)
 FT_PRINTF :
-	$(MAKE) -C $(FT_PRINTF_DIR)
+	$(MAKE) -s -C $(FT_PRINTF_DIR)
 
 clean:
 		$(MAKE) -C $(LIBFT_DIR) clean
