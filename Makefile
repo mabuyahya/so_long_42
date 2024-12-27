@@ -10,7 +10,10 @@ FT_PRINTF_DIR = lib/ftprintf
 INC_DIR = include
 
 #file
-SRC_FILES = main.c error_handling.c  reading_map.c handling_map2.c handling_map3.c handling_map.c
+SRC_FILES = check_chars_number.c  check_map_helper.c   	 main.c      reading_map_checking.c \
+check_map.c           error_printing_argv.c  playable.c \
+
+
 SRC_FILES_WHIT_PREFIX = $(addprefix src/, $(SRC_FILES))
 OBJ_FILES = $(SRC_FILES_WHIT_PREFIX:src/%.c=obj/%.o)
 

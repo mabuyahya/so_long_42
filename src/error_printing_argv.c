@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   error_printing_argv.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuyahy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:41:22 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/25 18:41:50 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:43:05 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_free_exit(char *str,char *to_free, int free_flag)
+void	print_free_exit(char *str,char *to_free, int free_flag, int	fd)
 {
 	if (str)
 		ft_putendl_fd(str, 2);
 	if (free_flag)
 		free(to_free);
+	if (fd > 0)
+		close(fd);
 	exit(1);
 }
+void	print_free(char *str,char *to_free, int free_flag, int	fd)
+{
+	if (str)
+		ft_putendl_fd(str, 2);
+	if (free_flag)
+		free(to_free);
+	if (fd > 0)
+		close(fd);
+}
 
-
-void	print_freemap_exit(char *str,char **map, int free_flag)
+void	print_freemap_exit(char *str,char **map, int free_flag, int fd)
 {
 	int	i;
 
@@ -38,6 +48,8 @@ void	print_freemap_exit(char *str,char **map, int free_flag)
 		}
 		free(map);
 	}
+	if (fd >= 0)
+		close(fd);
 	exit(1);
 }
 

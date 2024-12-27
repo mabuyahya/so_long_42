@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_map_helper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/24 11:18:14 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 19:50:47 by mabuyahy         ###   ########.fr       */
+/*   Created: 2024/12/26 09:35:52 by mabuyahy          #+#    #+#             */
+/*   Updated: 2024/12/27 14:43:02 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char *argv[])
+int	check_ones(char *str)
 {
-	t_game game;
-	
-	check_argvv(argc, argv);
-	game.fd = open(argv[1], O_RDONLY);
-	geting_map(&game);	
-	check_map(&game);
-	ft_printf("height ->%d\n width -> %d\n", game.height, game.width);
-	set_player_pos(&game);
-	can_play(&game);
-	
+	int	i;
 
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] != '1')	
+			return (0);
+	}
+	return(1);
+}
 
+void	check_chars_num(t_game *game)
+{
+	check_p_num(game);
+	check_e_num(game);
+	check_c_num(game);
+}
 
+int	last_char_i(char *str)
+{
+	int	i;
 
-
+	i = 0;
+	while (str[i])
+		i++;
+	return (i - 1);
 }
