@@ -12,6 +12,13 @@
 
 #include "../include/so_long.h"
 
+int	key_handler(int	keycode, t_game *game)
+{
+	if (keycode == XK_Escape)
+		mlx_print_freemap_exit(NULL, game->map, 1 ,game->fd, game);	
+	return (0);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_game game;
@@ -30,7 +37,8 @@ int	main(int argc, char *argv[])
 	if (!game.win)
 		mlx_print_freemap_exit("error in mlx_new_window", game.map, 1 ,game.fd, &game);
 	loding_images(&game);
-	images_to_window(&game);	
+	images_to_window(&game);
+	mlx_key_hook(game.win, key_handler, &game);
 	mlx_loop(game.mlx);
 	mlx_print_freemap_exit(NULL, game.map, 1 ,game.fd, &game);	
 }

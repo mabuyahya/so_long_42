@@ -1,7 +1,8 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include <stdlib.h>
+# include <stdlib.h>
+# include <X11/keysym.h>
 # include "../lib/libft/libft.h"
 # include "../lib/ftprintf/ft_printf.h"
 # include <mlx.h>
