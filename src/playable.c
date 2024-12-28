@@ -6,62 +6,87 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:01:12 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 19:58:32 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:45:36 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void    malloc_empty_map(t_game *game)
 {
     int height;
     int width;
-    int i;
+    int y;
 
-    i = -1;
+    y = 0;    
     height = game->height;
     width = game->width;
-    game->empty_map = malloc(height * sizeof(int  *) + 1);
-    if (game->empty_map)
+    game->empty_map = malloc((height + 1) * sizeof(int  *));
+    if (!game->empty_map)
     {
-        print_freemap(NULL, game->map, 1, -1);
-        print_free_exit("error in malloc", game->map, 1, game->fd);
+        free(game->empty_map);
+        print_freemap_exit("error in malloc", game->map, 1, -1);
     }
-    ft_memset(game->empty_map, 1, game->height);
-    game->empty[game->height] = NULL;
-    while (game->empty_map[++i])
+    game->empty_map[game->height] = NULL;
+    while (y < game->height)
     {
-        game->empty[i] = ft_calloc(width, sizeof(int) + 1);
-        if (game->empty[i])
+        game->empty_map[y] = ft_calloc(width, sizeof(int) + 1);
+        if (!game->empty_map[y])
         {
             print_freemap(NULL, game->map, 1, -1);
-            print_freemap_exit("error in malloc", game->empty_map, 1, game->fd);
+            print_freemap_int_exit("error in malloc", game->empty_map, 1, game->fd);
         }
+        y++;
     }
 }
+void    check_if_can_play(t_game *game)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < game->height)
+    {
+        j = 0;
+        while (j < game->width)
+        {
+            if ((game->map[i][j] == 'E' || game->map[i][j] == 'C') && !game->empty_map[i][j])
+            {
+                print_freemap(NULL, game->map, 1, -1);
+                print_freemap_int_exit("the game can't be played", game->empty_map, 1, game->fd);
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
 void    flood_fill(t_game *game, int y, int x)
 {
-    if (game->map[y][x] == '1' || !(game->empty_map[y][x]))
+    if (y < 0 || x < 0 || y >= game->height || x >= game->width)
+        return ;
+    if (game->map[y][x] == '1' || (game->empty_map[y][x]))
         return ;
     game->empty_map[y][x] = 1;
-    flood_fill(game, x + 1,y);    
-    flood_fill(game, x - 1,y);    
-    flood_fill(game, x, y + 1);    
-    flood_fill(game, x, y - 1);    
+    flood_fill(game, y + 1, x);    
+    flood_fill(game, y - 1, x);    
+    flood_fill(game, y, x - 1);    
+    flood_fill(game, y, x + 1);   
 }
 
 void    set_player_pos(t_game *game)
 {
     int	i;
-	int	c;
+    int j;
 
-	c = 0;
-	i = 0;
-	while (game->map[i][j])
+    j = -1;
+	i = -1;
+	while (game->map[++i])
 	{
-		while (game->map[i][j])
+        j = -1;
+		while (game->map[i][++j])
         {
-            if (map[i][j] == 'P')
+            if (game->map[i][j] == 'P')
             {
                 game->player_x = j;
                 game->player_y = i;
@@ -71,19 +96,8 @@ void    set_player_pos(t_game *game)
 }
 void	can_play(t_game *game)
 {
-    int i;
-    int j;
-
-    i = -1;
-    y = 0;
     malloc_empty_map(game);
     flood_fill(game, game->player_y, game->player_x);
-    // while (game->empty_map[++i])
-    // {
-        // while(game->empty_map[i][j])
-        // {
-            // ft_printf("%")
-            // 
-        // }       
-    // }
+    check_if_can_play(game);
+    print_freemap_int(NULL, game->empty_map, 1, -1);
 }

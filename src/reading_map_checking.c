@@ -6,11 +6,11 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 12:42:07 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 15:42:13 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/27 23:31:53 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	reading_file(t_game *game)
 {

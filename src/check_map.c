@@ -6,11 +6,11 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:25:53 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 15:43:45 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/27 23:24:39 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	check_map(t_game *game)
 {

@@ -6,11 +6,11 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:31:36 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 19:49:31 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/27 23:24:39 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	check_p_num(t_game *game)
 {
@@ -29,7 +29,6 @@ void	check_p_num(t_game *game)
 	{
 		print_free_exit("should be only one player",game->str, 1, game->fd);
 	}
-	game->x_p
 }
 void	check_c_num(t_game *game)
 {
