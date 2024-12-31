@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moving_player.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/31 17:37:20 by mabuyahy          #+#    #+#             */
+/*   Updated: 2024/12/31 17:37:21 by mabuyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void    count_col(t_game *game)
@@ -52,6 +64,6 @@ void   moving_player(t_game *game, int new_player_y, int new_player_x)
 	}
     if (game->map[new_player_y][new_player_x] == 'E' && game->col != 0)
     {
-        ft_printf("You need to collect all the coins first!\n");
+        ft_printf("You need to collect all the spiders first!\n");
     }
 }

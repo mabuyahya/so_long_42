@@ -6,7 +6,7 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 04:37:57 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/28 09:11:42 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:54:25 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ void    loding_images(t_game *game)
     int width;
     int height;
     game->p_image = mlx_xpm_file_to_image(game->mlx, 
-                "imags/player.xpm", &width, &height);
+                "g/player.xpm", &width, &height);
     game->c_image = mlx_xpm_file_to_image(game->mlx, 
-                "imags/collect.xpm", &width, &height);
+                "g/collect.xpm", &width, &height);
     game->w_image = mlx_xpm_file_to_image(game->mlx, 
-                "imags/wall.xpm", &width, &height);
+                "g/wall.xpm", &width, &height);
     game->e_image = mlx_xpm_file_to_image(game->mlx, 
-                "imags/exit.xpm", &width, &height);
+                "g/exit.xpm", &width, &height);
     game->f_image = mlx_xpm_file_to_image(game->mlx, 
-                "imags/floor.xpm", &width, &height);
+                "g/floor.xpm", &width, &height);
     if (!game->c_image || !game->f_image 
                 || !game->p_image || !game->e_image || !game->w_image)
     {

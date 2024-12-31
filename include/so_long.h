@@ -7,7 +7,7 @@
 # include "../lib/libft/libft.h"
 # include "../lib/ftprintf/ft_printf.h"
 # include "mlx.h"
-# define IMAGE_SIZE 32
+# define IMAGE_SIZE 50
 
 typedef struct s_game
 {
