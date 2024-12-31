@@ -40,8 +40,8 @@ void	check_valid_chars(t_game *game)
 	i = -1;
 	while (game->str[++i])
 	{
-		if (game->str[i] != '0' && game->str[i] != '1' && game->str[i] != 'E' 
-				&& game->str[i] != 'P' && game->str[i] != 'C' && game->str[i] != '\n')
+		if ((game->str[i] != '0') && (game->str[i] != '1') && (game->str[i] != 'E') 
+				&& (game->str[i] != 'P') && (game->str[i] != 'C') && (game->str[i] != '\n'))
 		{
 			print_free_exit("invalid char in the map",game->str, 1, game->fd);
 		}

@@ -2,10 +2,11 @@
 #define SO_LONG_H
 
 # include <stdlib.h>
+#include <X11/X.h>
 # include <X11/keysym.h>
 # include "../lib/libft/libft.h"
 # include "../lib/ftprintf/ft_printf.h"
-# include <mlx.h>
+# include "mlx.h"
 # define IMAGE_SIZE 32
 
 typedef struct s_game
@@ -25,9 +26,17 @@ typedef struct s_game
     void    *f_image;
     void    *e_image;
     void    *c_image;
+    int col;
+    int moves;
     int check_win_fail;
+    int keys[65536];
 }           t_game;
 
+int key_press(int keycode, t_game *game);
+int key_release(int keycode, t_game *game);
+int loop_handler(t_game *game);
+void    count_col(t_game *game);
+void    moving_player(t_game *game, int new_player_y, int new_player_x);
 void	print_freemap_int(char *str,int **map, int free_flag, int fd);
 void	mlx_print_freemap_exit(char *str, char	**map, int	free_flag, int	fd,t_game *game);
 void   puting_images(t_game *game, int  x, int  y);

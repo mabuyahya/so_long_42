@@ -11,7 +11,8 @@ INC_DIR = include
 
 #file
 SRC_FILES = check_chars_number.c  check_map_helper.c   	 main.c      reading_map_checking.c \
-check_map.c     free_exit.c   images.c   error_printing_argv.c  playable.c \
+check_map.c     free_exit.c   images.c   error_printing_argv.c  playable.c  moving_player.c key.c \
+
 
 
 SRC_FILES_WHIT_PREFIX = $(addprefix src/, $(SRC_FILES))
@@ -20,10 +21,10 @@ OBJ_FILES = $(SRC_FILES_WHIT_PREFIX:src/%.c=obj/%.o)
 #libs
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
-LIBS = -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf -lmlx -lXext -lX11
+LIBS = -L$(LIBFT_DIR) -lft -L$(FT_PRINTF_DIR) -lftprintf -Lminilibx-linux -lmlx -lXext -lX11
 
 #Header
-HEADERS =  -I$(INC_DIR) -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)  
+HEADERS = -Iminilibx-linux  -I$(INC_DIR) -I$(LIBFT_DIR) -I$(FT_PRINTF_DIR)  
 
 #rules
 all:LIBFT FT_PRINTF $(NAME)
