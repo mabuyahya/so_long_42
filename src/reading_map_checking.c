@@ -6,7 +6,7 @@
 /*   By: mabuyahy <mabuyahy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 12:42:07 by mabuyahy          #+#    #+#             */
-/*   Updated: 2024/12/27 23:31:53 by mabuyahy         ###   ########.fr       */
+/*   Updated: 2024/12/31 20:21:16 by mabuyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	reading_file(t_game *game)
 		temp = str;
 		str = ft_strjoin(str, line);
 		if (!str)
-		{		
-			print_free_exit("error while reading the file", temp,1, game->fd);
+		{
+			print_free_exit("error while reading the file", temp, 1, game->fd);
 		}
 		free(temp);
 		free(line);
@@ -38,6 +38,7 @@ void	reading_file(t_game *game)
 	}
 	game->str = str;
 }
+
 void	geting_map(t_game *game)
 {
 	if (game->fd == -1)

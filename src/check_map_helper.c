@@ -12,7 +12,7 @@
 
 #include "../include/so_long.h"
 
-void	print_freemap(char *str,char **map, int free_flag, int fd)
+void	print_freemap(char *str, char **map, int free_flag, int fd)
 {
 	int	i;
 
@@ -21,10 +21,10 @@ void	print_freemap(char *str,char **map, int free_flag, int fd)
 		ft_putendl_fd(str, 2);
 	if (free_flag)
 	{
-		while(map[i])
+		while (map[i])
 		{
-			free(map[i]);	
-			i++;	
+			free(map[i]);
+			i++;
 		}
 		free(map);
 	}
@@ -39,13 +39,13 @@ int	check_ones(char *str)
 	i = -1;
 	while (str[++i])
 	{
-		if (str[i] != '1')	
+		if (str[i] != '1')
 			return (0);
 	}
-	return(1);
+	return (1);
 }
 
-void	print_free_int_exit(char *str,int *to_free, int free_flag, int	fd)
+void	print_free_int_exit(char *str, int *to_free, int free_flag, int fd)
 {
 	if (str)
 		ft_putendl_fd(str, 2);
